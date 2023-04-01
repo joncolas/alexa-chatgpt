@@ -1,0 +1,40 @@
+{
+  "skillManifest": {
+    "publishingInformation": {
+      "locales": {
+        "es-ES": {
+          "summary": "Ask questions to ChatGPT",
+          "examplePhrases": [
+            "Alexa, abre inteligencia artificial",
+            "Alexa, abre inteligencia artificial y dime {question}"
+          ],
+          "name": "ChatGPT Skill",
+          "description": "This skill passes user prompts to ChatGPT"
+        }
+      },
+      "keywords": [
+        "OpenAI",
+        "ChatGPT"
+      ],
+      "isAvailableWorldwide": true,
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda",
+          "uri": "ask-questions-chatgpt"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
