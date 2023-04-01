@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "artificial intelligence",
+            "invocationName": "chat gpt",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",

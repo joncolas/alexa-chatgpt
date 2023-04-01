@@ -1,29 +1,38 @@
 {
-    "manifest": {
-      "publishingInformation": {
-        "locales": {
-          "en-US": {
-            "summary": "Sample Short Description",
-            "examplePhrases": [
-              "Alexa open color picker"
-            ],
-            "name": "Color Picker",
-            "description": "Sample Full Description"
-          }
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "es-ES": {
+          "summary": "Ask questions to ChatGPT",
+          "examplePhrases": [
+            "Alexa, abre chat gpt",
+            "Alexa, abre chat gpt y dime {question}"
+          ],
+          "name": "ChatGPT Skill",
+          "description": "This skill passes user prompts to ChatGPT"
         },
-        "isAvailableWorldwide": true,
-        "testingInstructions": "Sample Testing Instructions.",
-        "distributionCountries": []
-      },
-      "apis": {
-        "custom": {
-          "endpoint": {
-            "sourceDir": "lambda/py",
-            "uri": "ask-custom-colorpicker-default"
-          }
+        "en-US": {
+          "summary": "Ask questions to ChatGPT",
+          "examplePhrases": [
+            "Alexa, open chat gpt",
+            "Alexa, open chat gpt and ask {question}"
+          ],
+          "name": "ChatGPT Skill",
+          "description": "This skill passes user prompts to ChatGPT"
         }
       },
-      "manifestVersion": "1.0"
-    }
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/py",
+          "uri": "ask-custom-chatgpt-default"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
   }
-  
+}
