@@ -10,6 +10,15 @@
           ],
           "name": "ChatGPT Skill",
           "description": "This skill passes user prompts to ChatGPT"
+        },
+        "en-US": {
+          "summary": "Ask questions to ChatGPT",
+          "examplePhrases": [
+            "Alexa, open artifical intelligence",
+            "Alexa, open inteligencia artificial and ask {question}"
+          ],
+          "name": "ChatGPT Skill",
+          "description": "This skill passes user prompts to ChatGPT"
         }
       },
       "keywords": [
