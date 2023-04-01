@@ -10,13 +10,13 @@
   ```
   In example,
   ```
-  User > Alexa, abre Inteligencia artificial
-  Alexa > Alexa mejorada activada, ¿qué necesitas? 
-  User > Dime "¿que és lorem ipsum?"
+  User > "Alexa, abre Inteligencia artificial"
+  Alexa > "Alexa mejorada activada, ¿qué necesitas?"
+  User > "Dime ¿qué es lorem ipsum?"
   ```
   or
   ```
-  User > Alexa, abre Inteligencia artificial y dime "¿que és lorem ipsum?"
+  User > "Alexa, abre Inteligencia artificial y dime "¿qué es lorem ipsum?"
   ```
 
 ## How to setup this skill to your Alexa Developers Console
@@ -35,9 +35,9 @@ To import an Alexa-hosted skill from a public Git repository
 1. Click **Import skill**. The **Import skill** dialog appears. Enter "https://github.com/joncolas/alexa-chatgpt.git"
 1. Click **Continue**. The message **Creating your Alexa-hosted skill appears**. If Alexa validates that the Git repository contains an Alexa skill that it can import Alexa creates your Alexa-hosted skill.
 
-[From "Import an Alexa-hosted skill from a public Git project"](https://developer.amazon.com/en-US/docs/alexa/hosted-skills/alexa-hosted-skills-git-import.html#import)
+From [Import an Alexa-hosted skill from a public Git project](https://developer.amazon.com/en-US/docs/alexa/hosted-skills/alexa-hosted-skills-git-import.html#import)
 
-**Remeber** to update `openai.api_key` variable with your key obtained from https://platform.openai.com/account/api-keys in [lambda_function.py](lambda/lambda_function.py)
+**Remeber** to update `openai.api_key` variable in [lambda_function.py](lambda/lambda_function.py) with an OpenAI API Key obtained from https://platform.openai.com/account/api-keys 
 
 # Troubleshooting
 
