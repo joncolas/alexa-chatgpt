@@ -30,7 +30,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "ChatGPT activado, ¿Qué necesitas?"
+        speak_output = "Chat GPT activado, ¿Qué necesitas?, empieza la pregunta por dime"
 
         return (
             handler_input.response_builder
