@@ -31,8 +31,8 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "lambda",
-          "uri": "ask-questions-chatgpt"
+          "sourceDir": "lambda/custom",
+          "uri": "ask-custom-questions-chatgpt"
         }
       }
     },
