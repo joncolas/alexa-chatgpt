@@ -1,49 +1,29 @@
 {
-  "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "es-ES": {
-          "summary": "Ask questions to ChatGPT",
-          "examplePhrases": [
-            "Alexa, abre inteligencia artificial",
-            "Alexa, abre inteligencia artificial y dime {question}"
-          ],
-          "name": "ChatGPT Skill",
-          "description": "This skill passes user prompts to ChatGPT"
+    "manifest": {
+      "publishingInformation": {
+        "locales": {
+          "en-US": {
+            "summary": "Sample Short Description",
+            "examplePhrases": [
+              "Alexa open color picker"
+            ],
+            "name": "Color Picker",
+            "description": "Sample Full Description"
+          }
         },
-        "en-US": {
-          "summary": "Ask questions to ChatGPT",
-          "examplePhrases": [
-            "Alexa, open artificial intelligence",
-            "Alexa, open artificial intelligence and ask {question}"
-          ],
-          "name": "ChatGPT Skill",
-          "description": "This skill passes user prompts to ChatGPT"
+        "isAvailableWorldwide": true,
+        "testingInstructions": "Sample Testing Instructions.",
+        "distributionCountries": []
+      },
+      "apis": {
+        "custom": {
+          "endpoint": {
+            "sourceDir": "lambda/py",
+            "uri": "ask-custom-colorpicker-default"
+          }
         }
       },
-      "keywords": [
-        "OpenAI",
-        "ChatGPT"
-      ],
-      "isAvailableWorldwide": true,
-      "distributionCountries": []
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "sourceDir": "lambda/custom",
-          "uri": "ask-custom-questions-chatgpt"
-        }
-      }
-    },
-    "manifestVersion": "1.0",
-    "permissions": [],
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
-      "isChildDirected": false,
-      "usesPersonalInfo": false
+      "manifestVersion": "1.0"
     }
   }
-}
+  
