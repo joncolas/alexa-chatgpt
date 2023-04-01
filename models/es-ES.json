@@ -4,6 +4,10 @@
       "invocationName": "inteligencia artificial",
       "intents": [
         {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
           "name": "AMAZON.CancelIntent",
           "samples": []
         },
@@ -26,14 +30,9 @@
           "samples": [
             "Dime {question}"
           ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
         }
       ],
       "types": []
     }
-  },
-  "version": "1"
+  }
 }

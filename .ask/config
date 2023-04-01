@@ -2,33 +2,20 @@
   "deploy_settings": {
     "default": {
       "skill_id": "",
-      "was_cloned": false,
-      "merge": {
-        "manifest": {
-          "apis": {
-            "custom": {
-              "endpoint": {
-                "uri": "ask-questions-chatgpt"
-              }
-            }
-          }
-        }
-      },
-      "in_skill_products": [],
       "resources": {
-        "manifest": {
-          "eTag": ""
-        },
-        "interactionModel": {
-          "en-US": {
-            "eTag": ""
-          },
-          "es-ES": {
-            "eTag": ""
+        "lambda": [
+          {
+            "functionName": "",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "runtime": "python3.6",
+            "handler": "lambda_function.lambda_handler"
           }
-        },
-        "lambda": []
-      }
+        ]
+      },
+      "was_cloned": false,
+      "merge": {}
     }
   }
 }
