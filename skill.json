@@ -14,8 +14,8 @@
         "en-US": {
           "summary": "Ask questions to ChatGPT",
           "examplePhrases": [
-            "Alexa, open artifical intelligence",
-            "Alexa, open inteligencia artificial and ask {question}"
+            "Alexa, open artificial intelligence",
+            "Alexa, open artificial intelligence and ask {question}"
           ],
           "name": "ChatGPT Skill",
           "description": "This skill passes user prompts to ChatGPT"
