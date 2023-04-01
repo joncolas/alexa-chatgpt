@@ -37,8 +37,8 @@ To import an Alexa-hosted skill from a public Git repository
 
 [From "Import an Alexa-hosted skill from a public Git project"](https://developer.amazon.com/en-US/docs/alexa/hosted-skills/alexa-hosted-skills-git-import.html#import)
 
-**Remeber** to update `openai.api_key` variable with your key obtained from https://platform.openai.com/account/api-keys
+**Remeber** to update `openai.api_key` variable with your key obtained from https://platform.openai.com/account/api-keys in [lambda_function.py](lambda/lambda_function.py)
 
 # Troubleshooting
 
-If the skill doesn't respond when you are asking for a question it could be related to RateLimitError, [see](https://help.openai.com/en/articles/6897202-ratelimiterror) for more information
+If the skill doesn't respond when you are asking for a question it could be related to RateLimitError, see [here](https://help.openai.com/en/articles/6897202-ratelimiterror) for more information
