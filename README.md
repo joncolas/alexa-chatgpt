@@ -4,13 +4,13 @@
 
 ## Usage
 
-  There are two interaction models, in example, for es-ES:
+There are two interaction models, in example, for es-ES:
   ```
   User > "Alexa, abre chat gpt"
   Alexa > "Chat GPT activado, ¿Qué necesitas? empieza la pregunta por la palabra 'dime'"
   User > "Dime ¿qué es lorem ipsum?"
   ```
-  or
+or
   ```
   User > "Alexa, abre chat gpt y dime ¿qué es lorem ipsum?"
   ```
@@ -40,11 +40,37 @@ Reference:
 #### Final skill setup
 
 Once the skill was imported to your Alexa Developer Console, enter inside and do this steps:
-- Update `openai.api_key` variable in [lambda_function.py](lambda/py/lambda_function.py) with an OpenAI API Key obtained from https://platform.openai.com/account/api-keys.
+- Replace `YOUR_OPENAI_API_KEY` by your OpenAi ApiKey in [chatgpt.py](lambda/py/chatgpt.py) file. If you don't have it yet you can create a new one from https://platform.openai.com/account/api-keys.
 - Ensure the **Skill Invocation Name** is defined, In the ADC go to **Build tab**, **Invocations > Skill Invocation Name**, I used **"Chat gpt"**.
 - In order to allow your Alexa devices run Chat gpt skill ensure that **Skill testing is enabled in Development mode**, go to **Test** tab and Select **Development**.
 
 Now you can start using Chat GPT skill in your alexa devices!
+
+# Test ChatGPT python module localy
+
+You can test ChatGPT python module from your local machine in the following way:
+1. Change to the lambda/py directory
+  ```
+  cd lambda/py/
+  ```
+1. Set your OpenAI apiKey environment variable
+  ```
+  cp .env.template .env
+  ```
+1. Load environment
+  ```
+  source .env
+  ```
+1. Prepare a virtualenvironment for OpenAI
+  ```
+  virtualenv chatgpt_skill_module
+  source chatgpt_skill_module/bin/activate
+  pip install openai
+  ```
+1. Execute the script
+  ```
+  python test_chatgpt.py "YOUR_PROMPT"
+  ```
 
 # Troubleshooting
 

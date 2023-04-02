@@ -5,7 +5,7 @@ import os
 class ChatGPTClient:
     def __init__(self, prompt):
         self.prompt = prompt
-        openai.api_key = os.environ.get('OPENAI_API_KEY')
+        openai.api_key = os.environ.get('OPENAI_API_KEY', 'YOUR_OPENAI_API_KEY')
 
     def send_prompt(self):
         return openai.Completion.create(
