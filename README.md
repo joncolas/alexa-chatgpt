@@ -48,4 +48,4 @@ Now you can start using Chat GPT skill in your alexa devices!
 
 # Troubleshooting
 
-If the skill doesn't respond when you are asking for a question it could be related to RateLimitError, see [here](https://help.openai.com/en/articles/6897202-ratelimiterror) for more information
+If the skill doesn't respond when you are sending a prompt it could be related to RateLimitError, see [here](https://help.openai.com/en/articles/6897202-ratelimiterror) for more information

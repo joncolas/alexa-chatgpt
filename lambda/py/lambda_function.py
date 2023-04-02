@@ -5,7 +5,7 @@
 # session persistence, api calls, and more.
 # This sample is built using the handler classes approach in skill builder.
 import logging
-import openai
+from chatgpt import ChatGPTClient
 import ask_sdk_core.utils as ask_utils
 
 from ask_sdk_core.skill_builder import SkillBuilder
@@ -15,7 +15,6 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
-openai.api_key = "PUT_HERE_YOUR_OPEN_AI_API_KEY"
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -46,18 +45,10 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         slots = handler_input.request_envelope.request.intent.slots
-        question = slots['question'].value
+        prompt = slots['prompt'].value
 
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=question,
-            temperature=0,
-            max_tokens=4000,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
-        )
-        speak_output = response.choices[0].text
+        chatgpt_client = ChatGPTClient(prompt)
+        speak_output = chatgpt_client.build_response()
 
         return (
             handler_input.response_builder

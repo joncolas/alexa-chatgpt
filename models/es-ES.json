@@ -23,12 +23,12 @@
           "name": "SendPromptToChatGPTIntent",
           "slots": [
             {
-              "name": "question",
+              "name": "prompt",
               "type": "AMAZON.SearchQuery"
             }
           ],
           "samples": [
-            "Dime {question}"
+            "Dime {prompt}"
           ]
         }
       ],
