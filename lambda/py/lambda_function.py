@@ -58,8 +58,8 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
 
         try:
             speak_output = get_chatgpt_response(prompt)
-        except TimeoutError:
-            speak_output = "Lo siento, Chat GPT está tardando demasiado, sólo puedo esperar hasta 10 segundos"
+        except timeout_decorator.timeout_decorator.TimeoutError:
+            speak_output = "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades. Intenta hacerlo desde tu navegador."
             pass
 
         return (
