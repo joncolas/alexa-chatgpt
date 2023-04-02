@@ -1,4 +1,6 @@
-# alexa-chatgpt
+# Alexa + Chatgpt
+
+![image](https://user-images.githubusercontent.com/8049798/229324068-32287de1-a08e-40eb-bdaf-2e92c52b50c2.png)
 
 ## Usage
 
