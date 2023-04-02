@@ -6,7 +6,7 @@
           "summary": "Ask questions to ChatGPT",
           "examplePhrases": [
             "Alexa, abre chat gpt",
-            "Alexa, abre chat gpt y dime {prompt}"
+            "Alexa, abre chat gpt y {prompt}"
           ],
           "name": "ChatGPT Skill",
           "description": "This skill passes user prompts to ChatGPT"
@@ -15,7 +15,7 @@
           "summary": "Ask questions to ChatGPT",
           "examplePhrases": [
             "Alexa, open chat gpt",
-            "Alexa, open chat gpt and ask {prompt}"
+            "Alexa, open chat gpt and {prompt}"
           ],
           "name": "ChatGPT Skill",
           "description": "This skill passes user prompts to ChatGPT"

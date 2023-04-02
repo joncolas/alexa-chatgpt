@@ -2,16 +2,18 @@
 
 ![image](https://user-images.githubusercontent.com/8049798/229324068-32287de1-a08e-40eb-bdaf-2e92c52b50c2.png)
 
+
 ## Usage
 
 There are two interaction models, in example, for es-ES:
   ```
   User > "Alexa, abre chat gpt"
-  Alexa > "Chat GPT activado, ¿Qué necesitas? empieza la pregunta por la palabra 'dime'"
-  User > "Dime ¿qué es lorem ipsum?"
+  Alexa > "Chat GPT activado, ¿Qué necesitas?"
+  User > "¿qué es lorem ipsum?"
   ```
 
 ## How to setup this skill to your Alexa Developers Console
+
 
 ### Using the Alexa Developers Console
 
@@ -42,6 +44,7 @@ Once the skill was imported to your Alexa Developer Console, enter inside and do
 
 Now you can start using Chat GPT skill in your alexa devices!
 
+
 # Test ChatGPT python module localy
 
 You can test ChatGPT python module from your local machine in the following way:
@@ -68,6 +71,12 @@ You can test ChatGPT python module from your local machine in the following way:
   ```
   python test_chatgpt.py "YOUR_PROMPT"
   ```
+
+
+# Limitations
+
+- By definition, Alexa can not wait more than 10 seconds to get response from a skill so if your prompt takes more than 10 seconds to resolve Chat GPT skill will give you error.
+
 
 # Troubleshooting
 

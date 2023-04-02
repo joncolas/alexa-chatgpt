@@ -28,7 +28,7 @@
                         }
                     ],
                     "samples": [
-                        "Ask {prompt}"
+                        " {prompt}"
                     ]
                 }
             ],
