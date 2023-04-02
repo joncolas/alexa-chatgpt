@@ -6,7 +6,7 @@
 # This sample is built using the handler classes approach in skill builder.
 import logging
 from chatgpt import ChatGPTClient
-import timeout_decorator
+import func_timeout
 
 import ask_sdk_core.utils as ask_utils
 
@@ -22,8 +22,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-# Alexa response timeout: 10s
-@timeout_decorator.timeout(8)
 def get_chatgpt_response(prompt):
     chatgpt_client = ChatGPTClient(prompt)
     return chatgpt_client.build_response()
@@ -56,10 +54,11 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         prompt = slots['prompt'].value
 
+        # Alexa response timeout: 10s
         try:
-            speak_output = get_chatgpt_response(prompt)
-        except timeout_decorator.timeout_decorator.TimeoutError:
-            speak_output = "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades. Intenta hacerlo desde tu navegador."
+            speak_output = func_timeout.func_timeout(8, get_chatgpt_response, args=[prompt])
+        except func_timeout.FunctionTimedOut:
+            speak_output = "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades. Prueba Chat GPT web."
             pass
 
         return (

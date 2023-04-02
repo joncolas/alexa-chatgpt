@@ -2,10 +2,9 @@
 
 import sys
 from chatgpt import ChatGPTClient
-import timeout_decorator
+import func_timeout
 
 
-@timeout_decorator.timeout(8)
 def get_chatgpt_response(prompt):
     chatgpt_client = ChatGPTClient(prompt)
     return chatgpt_client.build_response()
@@ -16,9 +15,10 @@ def main(args):
         print("Usage: {0} <prompt>".format(args[0]))
         sys.exit(1)
     prompt = args[1]
+
     try:
-        speak_output = get_chatgpt_response(prompt)
-    except timeout_decorator.timeout_decorator.TimeoutError:
+        speak_output = func_timeout.func_timeout(8, get_chatgpt_response, args=[prompt])
+    except func_timeout.FunctionTimedOut:
         speak_output = "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades. Prueba Chat GPT web."
         pass
 
