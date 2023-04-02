@@ -10,10 +10,6 @@ There are two interaction models, in example, for es-ES:
   Alexa > "Chat GPT activado, ¿Qué necesitas? empieza la pregunta por la palabra 'dime'"
   User > "Dime ¿qué es lorem ipsum?"
   ```
-or
-  ```
-  User > "Alexa, abre chat gpt y dime ¿qué es lorem ipsum?"
-  ```
 
 ## How to setup this skill to your Alexa Developers Console
 
@@ -63,6 +59,7 @@ You can test ChatGPT python module from your local machine in the following way:
   ```
 1. Prepare a virtualenvironment for OpenAI
   ```
+  pip install virtualenv
   virtualenv chatgpt_skill_module
   source chatgpt_skill_module/bin/activate
   pip install openai
