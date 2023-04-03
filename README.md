@@ -9,7 +9,7 @@ There are two interaction models, in example, for es-ES:
   ```
   User > "Alexa, abre chat gpt"
   Alexa > "Chat GPT activado, ¿Qué necesitas?"
-  User > "¿qué es lorem ipsum?"
+  User > "Busca ¿qué es lorem ipsum?"
   ```
 
 ## How to setup this skill to your Alexa Developers Console
