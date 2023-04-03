@@ -28,7 +28,7 @@
                         }
                     ],
                     "samples": [
-                        " {prompt}"
+                        "search {prompt}"
                     ]
                 }
             ],
