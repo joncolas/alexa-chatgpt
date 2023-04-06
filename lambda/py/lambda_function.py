@@ -7,6 +7,7 @@
 import logging
 from chatgpt import ChatGPTClient
 import signal
+import prompts
 
 import ask_sdk_core.utils as ask_utils
 
@@ -32,10 +33,10 @@ def get_chatgpt_response(prompt):
 
 
 def time_out(signum, frame):
-    raise GPTPrompResolutionTakesToMuchTime
+    raise GPTPrompResolutionTakesTooMuchTime
 
 
-class GPTPrompResolutionTakesToMuchTime(Exception):
+class GPTPrompResolutionTakesTooMuchTime(Exception):
     pass
 
 
@@ -47,8 +48,9 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return ask_utils.is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speak_output = "Chat GPT activado, ¿Qué necesitas?"
+        # get localization data
+        data = handler_input.attributes_manager.request_attributes["_"]
+        speak_output = data[prompts.CHAT_GPT_ACTIVATED]
 
         return (
             handler_input.response_builder
@@ -65,13 +67,14 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         slots = handler_input.request_envelope.request.intent.slots
         prompt = slots['prompt'].value
+        data = handler_input.attributes_manager.request_attributes["_"]
 
         # Alexa response timeout: 10s
         try:
             speak_output = get_chatgpt_response(prompt)
-        except GPTPrompResolutionTakesToMuchTime:
+        except GPTPrompResolutionTakesTooMuchTime:
             # Alexa response timeout: 10s
-            speak_output = "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades, reformula la pregunta"
+            speak_output = data[prompts.ALEXA_TIMEOUT]
             pass
 
         return (
