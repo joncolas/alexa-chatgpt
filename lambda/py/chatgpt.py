@@ -3,21 +3,17 @@ import os
 
 
 class ChatGPTClient:
-    def __init__(self, prompt):
+    def __init__(self, prompt, saved_prompts):
         self.prompt = prompt
+        self.saved_prompts = saved_prompts
         openai.api_key = os.environ.get('OPENAI_API_KEY', 'YOUR_OPENAI_API_KEY')
 
     def send_prompt(self):
-        return openai.Completion.create(
-            model="text-davinci-003",
-            prompt=self.prompt,
-            temperature=0,
-            max_tokens=4000,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
+        return openai.ChatCompletion.create(
+          model="gpt-3.5-turbo",
+          messages=self.saved_prompts
         )
 
     def build_response(self):
         response = self.send_prompt()
-        return response.choices[0].text
+        return response.choices[0].message.content

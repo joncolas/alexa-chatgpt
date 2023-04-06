@@ -9,7 +9,7 @@ from chatgpt import ChatGPTClient
 import signal
 import languaje
 
-import ask_sdk_core.utils as ask_utils
+import ask_sdk_core.utils as ask_utils, get_slot_value
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
@@ -23,12 +23,12 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def get_chatgpt_response(prompt):
+def get_chatgpt_response(prompt, saved_prompts):
     signal.signal(signal.SIGALRM, time_out)
     # Ensure query does not take for than the Alexa timeout(10s)
     signal.alarm(7)
     # If ChatGPT takes more time this query is terminated
-    chatgpt_client = ChatGPTClient(prompt)
+    chatgpt_client = ChatGPTClient(prompt, saved_prompts)
     return chatgpt_client.build_response()
 
 
@@ -65,21 +65,33 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
         return ask_utils.is_intent_name("SendPromptToChatGPTIntent")(handler_input)
 
     def handle(self, handler_input):
-        slots = handler_input.request_envelope.request.intent.slots
-        prompt = slots['prompt'].value
+        # get localization data
         locale = handler_input.request_envelope.request.locale
+        prompt = get_slot_value("prompt")
+        # Get any existing conversations from the incoming request
+        session_attr = handler_input.attributes_manager.session_attributes
+        if "SavedPrompts" in session_attr:
+            saved_prompts = session_attr["SavedPrompts"]
+        else:
+            saved_prompts = [
+                {"role": "system", "content": languaje.strings[locale]["ASSISTANT_ROLE"]}
+            ]
 
         # Alexa response timeout: 10s
         try:
-            speak_output = get_chatgpt_response(prompt)
+            speak_output = get_chatgpt_response(prompt, saved_prompts)
         except GPTPrompResolutionTakesTooMuchTime:
             # Alexa response timeout: 10s
             speak_output = languaje.strings[locale]["ALEXA_TIMEOUT"]
             pass
 
+        saved_prompts.append({"role": "assistant", "content": speak_output})
+        session_attr["SavedPrompts"] = saved_prompts
+
         return (
             handler_input.response_builder
                 .speak(speak_output)
+                .set_should_end_session(False)
                 .response
         )
 
