@@ -3,6 +3,9 @@
 import sys
 from chatgpt import ChatGPTClient
 import signal
+import languaje
+
+locale = "es-ES"
 
 
 def get_chatgpt_response(prompt):
@@ -15,10 +18,10 @@ def get_chatgpt_response(prompt):
 
 
 def time_out(signum, frame):
-    raise GPTPrompResolutionTakesToMuchTime
+    raise GPTPrompResolutionTakesTooMuchTime
 
 
-class GPTPrompResolutionTakesToMuchTime(Exception):
+class GPTPrompResolutionTakesTooMuchTime(Exception):
     pass
 
 
@@ -27,12 +30,12 @@ def main(args):
         print("Usage: {0} <prompt>".format(args[0]))
         sys.exit(1)
     prompt = args[1]
-
+    print(languaje.strings[locale]["CHAT_GPT_ACTIVATED"])
     try:
         speak_output = get_chatgpt_response(prompt)
-    except GPTPrompResolutionTakesToMuchTime:
+    except GPTPrompResolutionTakesTooMuchTime:
         # Alexa response timeout: 10s
-        speak_output = "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades, reformula la pregunta"
+        speak_output = languaje.strings[locale]["ALEXA_TIMEOUT"]
         pass
 
     print(speak_output)

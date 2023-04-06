@@ -1,4 +1,4 @@
-{
+strings = {
     "es-ES": {
         "CHAT_GPT_ACTIVATED": "Chat GPT activado, ¿Qué necesitas?",
         "ALEXA_TIMEOUT": "Lo siento, la pregunta que has hecho necesita más de 10 segundos para resolverse, lo cual está por encima de mis posibilidades, reformula la pregunta"

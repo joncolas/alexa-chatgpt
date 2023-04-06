@@ -7,7 +7,7 @@
 import logging
 from chatgpt import ChatGPTClient
 import signal
-import prompts
+import languaje
 
 import ask_sdk_core.utils as ask_utils
 
@@ -49,8 +49,8 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # get localization data
-        data = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = data[prompts.CHAT_GPT_ACTIVATED]
+        locale = handler_input.request_envelope.request.locale
+        speak_output = languaje.strings[locale]["CHAT_GPT_ACTIVATED"]
 
         return (
             handler_input.response_builder
@@ -67,14 +67,14 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         slots = handler_input.request_envelope.request.intent.slots
         prompt = slots['prompt'].value
-        data = handler_input.attributes_manager.request_attributes["_"]
+        locale = handler_input.request_envelope.request.locale
 
         # Alexa response timeout: 10s
         try:
             speak_output = get_chatgpt_response(prompt)
         except GPTPrompResolutionTakesTooMuchTime:
             # Alexa response timeout: 10s
-            speak_output = data[prompts.ALEXA_TIMEOUT]
+            speak_output = languaje.strings[locale]["ALEXA_TIMEOUT"]
             pass
 
         return (
