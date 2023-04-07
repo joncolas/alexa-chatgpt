@@ -73,7 +73,7 @@ You can test ChatGPT python module from your local machine in the following way:
     ```
 1. Execute the script
     ```
-    python test_chatgpt.py "YOUR_PROMPT"
+    python test_chatgpt.py
     ```
 
 
