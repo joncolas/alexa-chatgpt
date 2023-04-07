@@ -28,7 +28,9 @@
                         }
                     ],
                     "samples": [
-                        "search {prompt}"
+                        "search {prompt}",
+                        "now search {prompt}",
+                        "jarvis"
                     ]
                 }
             ],

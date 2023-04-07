@@ -28,7 +28,9 @@
             }
           ],
           "samples": [
-            "busca {prompt}"
+            "dime {prompt}",
+            "ahora dime {prompt}",
+            "jarvis"
           ]
         }
       ],

@@ -5,12 +5,16 @@
 
 ## Usage
 
-There are two interaction models, in example, for es-ES:
+Interation example:
   ```
-  User > "Alexa, abre chat gpt"
-  Alexa > "Chat GPT activado, ¿Qué necesitas?"
-  User > "Busca ¿qué es lorem ipsum?"
+  User > "Alexa, open chat gpt"
+  Alexa > "Chat GPT activated, What do you need?"
+  User > "Jarvis, ¿how much is 3+7?"
+  Alexa > "The result is 10"
+  User > "Jarvis, and if we replace 7 number by 2 ?"
+  Alexa > "The result is 5"
   ```
+
 
 ## How to setup this skill to your Alexa Developers Console
 
@@ -22,7 +26,7 @@ To import an Alexa-hosted skill from a public Git repository
 1. Open the [Alexa developer console](https://developer.amazon.com/alexa/console/ask) and log in.
 1. Click **Create Skill**. The **Create a new skill page** appears.
 1. For **Skill name**, you can use any name here. I set "Chat GPT".
-1. For **Default language**, choose language, this skill is compatible with Spanish(Spain) and English(US).
+1. For **Default language**, choose language, this skill is compatible with English(en-US) and Spanish(es-ES).
 1. For **Choose type of experience**, **select Other**.
 1. For **Choose a model to add to your skill**, **select Custom**.
 1. For **Choose a method to host your skill's backend resources**, select **Alexa-Hosted (Python)**.
@@ -75,9 +79,9 @@ You can test ChatGPT python module from your local machine in the following way:
 
 # Limitations
 
-- By definition, Alexa can not wait more than 10 seconds to get response from a skill so if your prompt takes more than 10 seconds to resolve Chat GPT skill will give you error.
+By definition, Alexa can not wait more than 10 seconds to get response from a skill so if your prompt takes more than 10 seconds to resolve Chat GPT skill will give you error.
 
 
 # Troubleshooting
 
-If the skill doesn't respond when you are sending a prompt it could be related to RateLimitError, see [here](https://help.openai.com/en/articles/6897202-ratelimiterror) for more information
+You can check logs in CloudwatchLogs from the Code tab in the Alexa Developers Console.
