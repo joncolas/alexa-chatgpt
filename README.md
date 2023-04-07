@@ -5,7 +5,7 @@
 
 ## Usage
 
-Interation example:
+Interaction example:
   ```
   User > "Alexa, open chat gpt"
   Alexa > "Chat GPT activated, What do you need?"
@@ -53,28 +53,28 @@ Now you can start using Chat GPT skill in your alexa devices!
 
 You can test ChatGPT python module from your local machine in the following way:
 1. Change to the lambda/py directory
-  ```
-  cd lambda/py/
-  ```
+    ```
+    cd lambda/py/
+    ```
 1. Set your OpenAI apiKey environment variable
-  ```
-  cp .env.template .env
-  ```
+    ```
+    cp .env.template .env
+    ```
 1. Load environment
-  ```
-  source .env
-  ```
+    ```
+    source .env
+    ```
 1. Prepare a virtualenvironment for OpenAI
-  ```
-  pip install virtualenv
-  virtualenv chatgpt_skill_module
-  source chatgpt_skill_module/bin/activate
-  pip install openai
-  ```
+    ```
+    pip install virtualenv
+    virtualenv chatgpt_skill_module
+    source chatgpt_skill_module/bin/activate
+    pip install openai
+    ```
 1. Execute the script
-  ```
-  python test_chatgpt.py "YOUR_PROMPT"
-  ```
+    ```
+    python test_chatgpt.py "YOUR_PROMPT"
+    ```
 
 
 # Limitations
