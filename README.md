@@ -3,6 +3,17 @@
 ![image](https://user-images.githubusercontent.com/8049798/229324068-32287de1-a08e-40eb-bdaf-2e92c52b50c2.png)
 
 
+## Description 
+
+Alexa Skill to make conversations with ChatGPT.
+
+
+## Features
+- Send prompts to ChatGPT
+- Conversational interaction, ChatGPT prompts are saved in the skill session.
+- Supported languages English(en-US) and Spanish(es-ES)
+
+
 ## Usage
 
 Interaction example:
@@ -25,7 +36,7 @@ To import an Alexa-hosted skill from a public Git repository
 
 1. Open the [Alexa developer console](https://developer.amazon.com/alexa/console/ask) and log in.
 1. Click **Create Skill**. The **Create a new skill page** appears.
-1. For **Skill name**, you can use any name here. I set "Chat GPT".
+1. For **Skill name**, use "chat gpt".
 1. For **Default language**, choose language, this skill is compatible with English(en-US) and Spanish(es-ES).
 1. For **Choose type of experience**, **select Other**.
 1. For **Choose a model to add to your skill**, **select Custom**.
@@ -43,7 +54,6 @@ Reference:
 
 Once the skill was imported to your Alexa Developer Console, enter inside and do this steps:
 - Replace `YOUR_OPENAI_API_KEY` by your OpenAi ApiKey in [chatgpt.py](lambda/py/chatgpt.py) file. If you don't have it yet you can create a new one from https://platform.openai.com/account/api-keys.
-- Ensure the **Skill Invocation Name** is defined, In the ADC go to **Build tab**, **Invocations > Skill Invocation Name**, I used **"Chat gpt"**.
 - In order to allow your Alexa devices run Chat gpt skill ensure that **Skill testing is enabled in Development mode**, go to **Test** tab and Select **Development**.
 
 Now you can start using Chat GPT skill in your alexa devices!
