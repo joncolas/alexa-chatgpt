@@ -6,8 +6,8 @@
 # This sample is built using the handler classes approach in skill builder.
 import logging
 from chatgpt import ChatGPTClient
-import signal
 import languaje
+import timeout_decorator
 
 import ask_sdk_core.utils as ask_utils
 
@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
+# Alexa response timeout: 10s
+@timeout_decorator.timeout(8)
 def get_chatgpt_response(prompt):
     chatgpt_client = ChatGPTClient(prompt)
     return chatgpt_client.build_response()
@@ -66,10 +68,16 @@ class SendPromptToChatGPTIntentHandler(AbstractRequestHandler):
                 {"role": "system", "content": languaje.strings[locale]["ASSISTANT_ROLE"]}
             ]
 
-        # Alexa response timeout: 10s
         saved_prompts.append({"role": "user", "content": prompt})
-        speak_output = get_chatgpt_response(saved_prompts)
-        saved_prompts.append({"role": "assistant", "content": speak_output})
+
+        # Alexa response timeout: 10s
+        try:
+            speak_output = get_chatgpt_response(saved_prompts)
+            saved_prompts.append({"role": "assistant", "content": speak_output})
+        except timeout_decorator.timeout_decorator.TimeoutError:
+            speak_output = languaje.strings[locale]["ALEXA_TIMEOUT"]
+            pass
+
         session_attr["SavedPrompts"] = saved_prompts
 
         return (
