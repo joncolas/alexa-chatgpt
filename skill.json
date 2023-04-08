@@ -3,22 +3,26 @@
     "publishingInformation": {
       "locales": {
         "es-ES": {
-          "summary": "Ask questions to ChatGPT",
+          "summary": "Haz preguntas a ChatGPT",
           "examplePhrases": [
             "Alexa, abre chat gpt",
-            "Alexa, abre chat gpt y {prompt}"
+            "Alexa, abre chat gpt y dime {prompt}"
           ],
-          "name": "ChatGPT Skill",
-          "description": "This skill passes user prompts to ChatGPT"
+          "name": "chat gpt",
+          "description": "Una Alexa skill que envía prompts a ChatGPT",
+          "smallIconUri": "file://assets/images/smallIcon.png",
+          "largeIconUri": "file://assets/images/largeIcon.png"
         },
         "en-US": {
           "summary": "Ask questions to ChatGPT",
           "examplePhrases": [
             "Alexa, open chat gpt",
-            "Alexa, open chat gpt and {prompt}"
+            "Alexa, open chat gpt and ask {prompt}"
           ],
-          "name": "ChatGPT Skill",
-          "description": "This skill passes user prompts to ChatGPT"
+          "name": "chat gpt",
+          "description": "An Alexa skill to send prompts to ChatGPT",
+          "smallIconUri": "file://assets/images/smallIcon.png",
+          "largeIconUri": "file://assets/images/largeIcon.png"
         }
       },
       "isAvailableWorldwide": true,
