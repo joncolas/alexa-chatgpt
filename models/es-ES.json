@@ -28,9 +28,10 @@
             }
           ],
           "samples": [
+            "busca {prompt}",
             "dime {prompt}",
-            "ahora dime {prompt}",
-            "jarvis"
+            "prompt {prompt}",
+            "jarvis {prompt}"
           ]
         }
       ],

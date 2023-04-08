@@ -29,8 +29,9 @@
                     ],
                     "samples": [
                         "search {prompt}",
-                        "now search {prompt}",
-                        "jarvis"
+                        "ask {prompt}",
+                        "prompt {prompt}",
+                        "jarvis {prompt}"
                     ]
                 }
             ],

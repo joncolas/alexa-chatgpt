@@ -20,9 +20,10 @@ Interaction example:
   ```
   User > "Alexa, open chat gpt"
   Alexa > "Chat GPT activated, What do you need?"
-  User > "Jarvis, ¿how much is 3+7?"
+  User > "Search ¿how much is 3+7?"
   Alexa > "The result is 10"
-  User > "Jarvis, and if we replace 7 number by 2 ?"
+  Alexa > "More questions?"
+  User > "Search, and if we replace 7 number by 2 ?"
   Alexa > "The result is 5"
   ```
 
