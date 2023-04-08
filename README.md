@@ -19,10 +19,10 @@ Alexa Skill to make conversations with ChatGPT.
 Interaction example:
   ```
   User > "Alexa, open chat gpt"
-  Alexa > "Chat GPT activated, What do you need?"
+  Alexa > "What do you need? start your question with 'ask' or 'search' words."
   User > "Search ¿how much is 3+7?"
   Alexa > "The result is 10"
-  Alexa > "More questions?"
+  Alexa > "More questions?, remember to start with 'ask' or 'search' words, if not, say 'end'."
   User > "Search, and if we replace 7 number by 2 ?"
   Alexa > "The result is 5"
   ```
